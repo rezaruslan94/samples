@@ -5,7 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   def admin?
-    current_user = User.find_by[:id]
-    current_user.roles.include?(Role.find_by(name: 'ADMIN'))
+    roles.include? Role.admin_role
+  end
+  def qc?
+    roles.include? Role.qc_role
   end
 end

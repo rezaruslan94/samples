@@ -5,8 +5,12 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
+    elsif user.qc?
+      # can [:create], [Employee]
+      can [:destroy], [Employee]
+      can [:read], [Employee]
     else
-      can :read, :all
+      cannot :read, :all
     end
 
     # Define abilities for the passed in user here. For example:

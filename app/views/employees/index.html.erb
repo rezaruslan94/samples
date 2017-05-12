@@ -30,7 +30,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% if can? :create, Employee %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_employee_path,
             :class => 'btn btn-primary' %>
+            <% end %>
