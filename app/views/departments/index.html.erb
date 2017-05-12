@@ -30,7 +30,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% if can? :create, Department %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_department_path,
             :class => 'btn btn-primary' %>
+            <% end %>

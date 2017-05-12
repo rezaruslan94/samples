@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-
+  def admin?
+    current_user = User.find_by[:id]
+    current_user.roles.include?(Role.find_by(name: 'ADMIN'))
+  end
 end

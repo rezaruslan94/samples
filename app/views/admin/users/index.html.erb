@@ -17,11 +17,11 @@
         <td><%= user.email %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
-                      user_path(user), :class => 'btn btn-default btn-xs' %>
+                      admin_user_path(user), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_user_path(user), :class => 'btn btn-default btn-xs' %>
+                      edit_admin_user_path(user), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      user_path(user),
+                      admin_user_path(user),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -30,7 +30,6 @@
     <% end %>
   </tbody>
 </table>
-<a href="/users/sign_up", class="btn btn-primary">Sign Up</a>
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_path,
+            new_admin_user_path,
             :class => 'btn btn-primary' %>
